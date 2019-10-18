@@ -13,7 +13,7 @@ P: Produktionsregeln
 3.
 
 4.
-Um außen Klammern zu erhalten, muss ich "S → A" und zweimal "A → (A)" verwenden. Danach muss aber "A → B-B" verwendet werden. Da der geforderte Ausdruck das Terminalsymbol "-" nicht enthält, lässt sich der Ausdruck mit dieser Grammatik nicht erzeugen.
+Um außen Klammern zu erhalten, muss ich "S → A" und zweimal "A → (A)" verwenden. Danach muss ich aber "A → B-B" nutzen. Da der geforderte Ausdruck das Terminalsymbol "-" nicht enthält, lässt sich der Ausdruck mit dieser Grammatik nicht erzeugen.
 
 5.
 Es können beliebig lange Wörter gebildet werden, denn mit "B → B+B" lassen sich beliebig viele B erzeugen.
