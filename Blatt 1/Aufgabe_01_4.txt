@@ -1,0 +1,19 @@
+1.
+
+2.
+N: Nichtterminalsymbole
+    Aus diesen lässt sich mithilfe der Produktionsregeln etwas anderes konstruieren.
+T: Terminalsymbole
+    Diese Symbole sind nicht weiter transformierbar. Nur sie bleiben am Ende übrig.
+S: Startsymbol
+    Das Symbol, mit dem ein Ausdruck beginnt.
+P: Produktionsregeln
+    Eine oder mehrere Regeln pro Nichtterminalsymbol, mit was diese ersetzt werden dürfen. Das können wieder Nichtterminalsymbole oder auch Terminalsymbole sein.
+
+3.
+
+4.
+Um außen Klammern zu erhalten, muss ich "S → A" und zweimal "A → (A)" verwenden. Danach muss aber "A → B-B" verwendet werden. Da der geforderte Ausdruck das Terminalsymbol "-" nicht enthält, lässt sich der Ausdruck mit dieser Grammatik nicht erzeugen.
+
+5.
+Es können beliebig lange Wörter gebildet werden, denn mit "B → B+B" lassen sich beliebig viele B erzeugen.
