@@ -13,5 +13,5 @@ c)
 6. Nein, '/' darf nicht benutzt werden
 
 d)
-123 / 25 gibt (für int) das Ergebnis der Division exklusive Rest, bzw. das abgerundete Ergebnis, also 4, zurück.
+123 / 25 gibt (für int) das Ergebnis der Division exklusive Rest, bzw. das abgerundete Ergebnis, also 4, zurück. (→ Wie oft passt die 25 ganz in die 123?)
 123 % 25 gibt den Rest der Division von 123 durch 25, also 23, zurück.
