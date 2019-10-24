@@ -1,0 +1,17 @@
+a)
+Zusammengesetzte Datentypen lassen sich auf einfache Datentypen zurückführen; sie sind, wie der Name schon sagt, aus einfachen Datentypen zusammengesetzt. Einfache Datentypen hingegen lassen sich auf nichts anderes zurückführen.
+
+b)
+Bei der Datendefinition wird ein Bezeichner für eine Variable vereinbart und ihr Datentyp festgesetzt. Der Wert kann, muss aber nicht initialisiert werden. Eine Adresse wird festgelegt und an dieser Stelle im Arbeitsspeicher ein dem Datentyp entsprechend großer Platz reserviert. Wird eine Variable nicht initialisiert, so ist ihr Wert "unvorhersehbar".
+
+c)
+1. Nein, darf nicht mit Zahl beginnen
+2. Nein, '%' und '?' dürfen nicht benutzt werden
+3. Nein, reserviertes Wort
+4. Nein, reserviertes Wort
+5. Ja
+6. Nein, '/' darf nicht benutzt werden
+
+d)
+123 / 25 gibt (für int) das Ergebnis der Division exklusive Rest, bzw. das abgerundete Ergebnis, also 4, zurück.
+123 % 25 gibt den Rest der Division von 123 durch 25, also 23, zurück.
