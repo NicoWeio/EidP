@@ -11,8 +11,8 @@ Die Definition eines struct besteht also aus dessen Namen und den enthaltenen Da
 b)
 - Array (Feld)
 - String (Zeichenkette)
-- struct
-- enum
+- struct (Datenverbund)
+- enum (Aufzähltyp)
 
 c)
 continue bricht nur den aktuellen Schleifendurchlauf ab, alle weiteren Durchläufe sind unbetroffen.
