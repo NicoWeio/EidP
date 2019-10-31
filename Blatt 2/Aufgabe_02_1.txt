@@ -1,0 +1,25 @@
+a)
+Mithilfe eines struct kann ein eigener (zusammengesetzter) Datentyp definiert werden: ein Verbund aus anderen Datentypen.
+Hier ein Beispiel:
+*  struct TStudent
+*  {
+*    int matrikelnummer;
+*    float schnitt;
+*  };
+Die Definition eines struct besteht also aus dessen Namen und den enthaltenen Daten, jeweils mit Angabe eines Namens und des Datentyps.
+
+b)
+- Array (Feld)
+- String (Zeichenkette)
+- struct
+- enum
+
+c)
+continue bricht nur den aktuellen Schleifendurchlauf ab, alle weiteren Durchläufe sind unbetroffen.
+Bei der break-Anweisung werden die Schleife bzw. das switch-Statement direkt verlassen.
+
+d)
+Mit dem Index 100. Das liegt daran, dass Indizes bei 0 beginnen. Das erste Element hat demnach den Index 0 und das hunderterste den Index 100.
+
+e)
+Ein Array beinhaltet Elemente eines Datentyps, die mit einem ansteigenden Index, beginnend bei 0, angesprochen werden können. Ein statisches Array besitzt eine durch die Variablendeklarierung festgelegte Größe, die sich später nicht mehr verändern lässt. Der benötigte Speicher wird im Stack reserviert.
