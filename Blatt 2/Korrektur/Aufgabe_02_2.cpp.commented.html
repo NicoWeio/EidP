@@ -1,0 +1,22 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_02_2.cpp ***/
+#include &lt;iostream&gt;
+using namespace std;
+
+int main () {
+        unsigned int const n = 1000;
+        float l = 0;
+
+        for (int i = 1; i &lt;= n; i++) {
+                l += (float)(i % 2 == 0 ? -1 : 1) / (float)(2*i - 1);
+        }
+
+        cout &lt;&lt; l &lt;&lt; endl;
+
+        return 0;
+}
+/* Ausgabe:
+0.785148
+*/
+/*** Ende Aufgabe_02_2.cpp ***/
+</span></pre></body></html>
