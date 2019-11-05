@@ -1,0 +1,76 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+
+1.
+
+    Schema zur Berechnung: 
+    - Die Zahl durch 2 dividieren
+    - Den Rest der Division notieren
+    - Falls das Ergebnis nicht 0 ist, Schritt 1 und 2 wiederholen
+    - Das Ergebnis &quot;r&uuml;ckw&auml;rts&quot; ablesen
+
+    15754 / 2 = 7877 Rest 0
+    7877 / 2 = 3938 Rest 1
+    3938 / 2 = 1969 Rest 0
+    1969 / 2 = 984 Rest 1
+    984 / 2 = 492 Rest 0
+    492 / 2 = 246 Rest 0
+    246 / 2 = 123 Rest 0
+    123 / 2 = 61 Rest 1
+    61 / 2 = 30 Rest 1
+    30 / 2 = 15 Rest 0
+    15 / 2 = 7 Rest 1
+    7 / 2 = 3 Rest 1
+    3 / 2 = 1 Rest 1
+    1 / 2 = 0 Rest 1
+
+    15754_10 = 11110110001010_2
+
+2.
+    110101011110011_2 = 1&middot;21^4 + 1&middot;2^13 + 0&middot;2^12 + 1&middot;2^11 + 0&middot;2^10 + 1&middot;2^9 + 0&middot;2^8 + 1&middot;2^7 + 1&middot;2^6 + 1&middot;2^5 + 1&middot;2^4 + 0&middot;2^3 + 0&middot;2^2 + 1&middot;2^1 + 1&middot;2^0 = 27379_10
+
+3.
+    Um ein negatives Vorzeichen zu erhalten, muss das h&ouml;chstwertige Bit (-(2^11)) auf 1 gesetzt werden.
+    -(2^11) = -2048
+    Die Differenz zur gesuchten Zahl kann dann als regul&auml;re Bin&auml;rzahl mithilfe der anderen Bits addieren, sodass in der Summe die richtige Zahl herauskommt.
+    -1338-(-2048) = 710
+    
+    710 / 2 = 355 Rest 0
+    355 / 2 = 177 Rest 1
+    177 / 2 = 88 Rest 1
+    88 / 2 = 44 Rest 0
+    44 / 2 = 22 Rest 0
+    22 / 2 = 11 Rest 0
+    11 / 2 = 5 Rest 1
+    5 / 2 = 2 Rest 1
+    2 / 2 = 1 Rest 0
+    1 / 2 = 0 Rest 1
+
+    710_10 = 1011000110
+
+    100000000000 + 001011000110 = 101011000110
+
+b)
+n=1 ist in Bin&auml;rdarstellung zuerst &hellip;01
+F&uuml;r jede Multiplikation mit 2 (Schritt 4) verschiebt sich diese 1 eine Stelle nach links.
+Da die Schleife 31-mal ausgef&uuml;hrt wird, befindet sich, solange kein &Uuml;berlauf geschieht, an (31+1)-ter Stelle von rechts die 1.
+
+1. 
+    Es sind gen&uuml;gend Stellen vorhanden, um die Zahl korrekt abzubilden. Das Ergebnis ist daher:
+    2^31 = 2147483648
+
+
+2. 
+    Die erste (h&ouml;chstwertige) Stelle hat bei signed int&#39;s ein negatives Vorzeichen. Diese Stelle w&uuml;rde aber mit positivem Vorzeichen gebraucht, um die Zahl korrekt darzustellen. Dementsprechend ist das Resultat:
+    -2^31 = -2147483648
+
+
+c)
+Wenn die zwei niedrigstwertigen Bits 0 sind, kann nur jede vierte Zahl dargestellt werden. Denn z&auml;hlt man im Dualsystem von 0 an hoch, so durchlaufen die zwei niedrigstwertigen Bits immer wieder &quot;00&quot;, &quot;01&quot;, &quot;10&quot;, und &quot;11&quot;. Es lassen sich also nur alle x &isin; 4n, n &isin; ℕ darstellen.
+Bei einer maximalen Anzahl von Bits ist die gr&ouml;&szlig;tm&ouml;gliche Zahl mit der geforderten Einschr&auml;nkung um 3 geringer.
+
+Allgemein lassen sich, wenn die k niedrigstwertigen Bits 0 sind, nur alle x &isin; (2^k)*n, n &isin; ℕ darstellen.
+
+<span style="color:#f00;">Ja, aber was bederutet das f&uuml;r die Eigenschaften der dargestellten Zahlen? -&gt; Teilbarkeit durch 2^k (-0.2 P.)</span>
+</span></pre>
+</body></html>
