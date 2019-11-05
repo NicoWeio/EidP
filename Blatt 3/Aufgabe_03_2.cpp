@@ -12,10 +12,9 @@ int main() {
   // *************************************
 
   bool isSchaltjahr = ((jahr % 400 == 0) || ((jahr % 4 == 0) && (jahr % 100 != 0)));
-
-  bool isDayValid = (tag > 0); //wird im Folgenden weiter bestimmt
   bool isMonthValid = (monat > 0 && monat <= 12);
   bool isYearInBounds = (jahr > 1600 && jahr < 2600);
+  int daysInMonth;
 
   switch (monat) {
   case 1: //Januar
@@ -27,9 +26,7 @@ int main() {
   case 12: //Dezember
     {
       //31 Tage
-      if (tag > 31) {
-        isDayValid = false;
-      }
+      daysInMonth = 31;
       break;
     }
   case 4: //April
@@ -38,19 +35,17 @@ int main() {
   case 11: //November
     {
       //30 Tage
-      if (tag > 30) {
-        isDayValid = false;
-      }
+      daysInMonth = 30;
       break;
     }
   case 2: //Februar
     {
       //SONDERFALL: 28 oder 29 Tage
-      if (isSchaltjahr ? (tag > 29) : (tag > 28)) {
-        isDayValid = false;
-      }
+      daysInMonth = isSchaltjahr ? 29 : 28;
     }
   }
+
+  bool isDayValid = (tag > 0 && tag <= daysInMonth);
 
   if (!isDayValid || !isMonthValid || !isYearInBounds) {
     cout << "Naechster Tag ist 99.99.9999" << endl;
@@ -61,45 +56,11 @@ int main() {
 
   tag++;
 
-  switch (monat) {
-  case 1: //Januar
-  case 3: //März
-  case 5: //Mai
-  case 7: //Juli
-  case 8: //August
-  case 10: //Oktober
-  case 12: //Dezember
-    {
-      //31 Tage
-      if (tag > 31) {
-        tag = 1;
-        monat++;
-      }
-      break;
-    }
-  case 4: //April
-  case 6: //Juni
-  case 9: //September
-  case 11: //November
-    {
-      //30 Tage
-      if (tag > 30) {
-        tag = 1;
-        monat++;
-      }
-      break;
-    }
-  case 2: //Februar
-    {
-      //SONDERFALL
-      if (isSchaltjahr ? (tag > 29) : (tag > 28)) {
-        tag = 1;
-        monat++;
-      }
-    }
+  if (tag > daysInMonth) {
+    tag = 1;
+    monat++;
   }
 
-  //TODO Schaltjahr hier wichtig!?
   if (monat > 12) {
     monat = 1;
     jahr++;
@@ -111,6 +72,7 @@ int main() {
     tag << "." << monat << "." << jahr << endl;
   return 0;
 }
+
 /* Ausgabe:
 0.11.2016:
 Naechster Tag ist 99.99.9999
