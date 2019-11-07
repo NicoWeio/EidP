@@ -1,0 +1,39 @@
+a)
+Da der Zeiger pVar bei der Deklaration noch nicht initialisiert wurde,
+ist die referenzierte Adresse zufällig, bis beispielsweise eine Zuweisung durch
+&Var passiert.
+
+b)
+Bei einer for-Schleife kann im Schleifenkopf neben der Bedingung für die Schleifendurchführung
+auch der Anfangswert und die Veränderung des Wertes angegeben werden. Bei einer while-Schleife
+wird im Schleifenkopf lediglich die Bedingung angegeben, die Änderung des Schleifenparameters muss
+im Schleiferumpf gegeben sein, sofern keine Endlosschleife entstehen soll.
+
+c)
+Ein Zeiger ist ein Datenobjekt, welches auf ein anderes Datenobjekt eines vorher festgelegten Datentyps
+zeigt. Ein Zeiger enthält also die Speicheradresse eines anderen Datenobjekts im Speicher.
+Der Zeigeroperator "*" ermöglicht das dereferenzieren des Zeigers. Durch diesen Operator Greift man auf den
+Inhalt des Datenobjektes zu, auf das der Zeiger zeigt.
+Durch den Operator "&" wird auf die Speicheradresse eines Datenobjektes zugegriffen.
+
+d)
+Da die Bedingung im Schleifenkopf vor jeder Durchführung überprüft wird, kann eine Endlosschleife erzeugt werden
+indem als Bedingung der bool'sche Wert true, bzw eine konstante (außer 0), benutz wird:
+while(1){}; for(, true,).
+
+e)
+1 /*** Aufgabe_03_1.cpp ***/
+2 #include <iostream>
+3 using namespace std;
+4
+5 int main() {
+6 int* x;
+7 int y;
+8 int z[1]={}; // Variablendeklaration: x ist ein zeiger auf ein int, y ist ein int, z ist ein array von ints mit einem Element
+9 y = 1; // Wert von y: 1
+10 x = &y; // x zeigt auf y
+11 z[0] = ++*x; // referenzierter Wert von x (y) wird um 1 erhöht und in das erste array element geschrieben
+12 cout << z[*x-2] << endl; // Ausgabe: Wert des ersten array Elements: 2
+13 return 0;
+14 }
+15 /*** Ende Aufgabe_03_1.cpp ***/
