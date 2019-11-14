@@ -1,0 +1,33 @@
+a)
+Funktionsdeklaration:
+Rückgabedatentyp Funktionsname(Datentyp des Parameters Name des Parameters);
+Funktionsdefinition:
+Rückgabedatentyp Funktionsname(Datentyp des Parameters Name des Parameters){
+Anweisungen
+return Rückgabewert}
+Beispiel:
+int dings (int x)( Funktion mit Rückgabetyp int)
+
+b)
+Da in einer Funktion die Länge des übergebenen arrays nicht enthalten ist, sollte die Bereichsgrenze
+als Argument mit übergeben werden um Bereichsüberschreitungen zu verhindern. Außerdem ist bei der Übergabe zu beachten,
+dass Arrays nicht als Kopie übergeben werden.
+
+c)
+Wenn eine Variable als Wert übergeben wird, wird dieser als Kopie in einer lokalen Variable
+übergeben, daher hat eine Veränderung der übergebenen Variable in der Funktion keinen Einfluss
+auf den Wert der Variablen außerhalb der Funktion. Wenn die Variable als Zeiger übergeben wird,
+wird zwar die Adresse der Variable als Kopie übergeben, eine Änderung des referenzierten Wertes
+gilt jedoch auch außerhalb der Funktion. Statt durch zeiger kann der Wert der Variablen auch durch
+eine Übergabe als Referenz möglich. In diesem Fall wird der Name des Parameters als zweiter Name
+der übergeben Variable behandelt.
+
+d)
+Das Argument wird als Kopie in einer lokalen Variable gespeichert,
+und kann daher nicht verändert werden. Auch muss beachtet werden, dass die Datentypen von Argument
+und Parameter übereinstimmen.
+
+c)
+return 66 bedeutet in diesem Kontext, dass die Funktion den Wert 66 als unsigned char zurück liefert.
+Diese Rückgabe kann entweder in einer anderen Variable des gleichen Datentyps abgespeichert, oder ohne
+Zwischenspeicherung als konstanter Wert weiterverwendet werden.
