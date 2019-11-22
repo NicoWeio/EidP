@@ -1,0 +1,49 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+Da der Zeiger pVar bei der Deklaration noch nicht initialisiert wurde,
+ist die referenzierte Adresse &quot;zuf&auml;llig&quot;, bis pVar beispielsweise auf &amp;var gesetzt wird.
+
+b)
+Bei einer for-Schleife kann im Schleifenkopf neben der Bedingung f&uuml;r die Schleifendurchf&uuml;hrung
+auch der Anfangswert und die Ver&auml;nderung des Wertes angegeben werden. Bei einer while-Schleife
+wird im Schleifenkopf lediglich die Bedingung angegeben, die &Auml;nderung des Schleifenparameters muss
+im Schleiferumpf gegeben sein, sofern keine Endlosschleife entstehen soll.
+
+c)
+Ein Zeiger ist ein Datenobjekt, welches auf ein anderes Datenobjekt eines vorher festgelegten Datentyps
+zeigt. Ein Zeiger enth&auml;lt also die Speicheradresse eines anderen Datenobjekts im Speicher.
+Der Zeigeroperator &quot;*&quot; erm&ouml;glicht das Dereferenzieren des Zeigers. Durch diesen Operator greift man auf den
+Inhalt des Datenobjektes zu, auf das der Zeiger zeigt.
+Der Operator &quot;&amp;&quot; gibt die Speicheradresse eines Datenobjektes zur&uuml;ck.
+
+d)
+Da die Bedingung im Schleifenkopf vor jeder Durchf&uuml;hrung &uuml;berpr&uuml;ft wird, kann eine Endlosschleife erzeugt werden,
+indem als Bedingung der bool&#39;sche Wert true, bzw eine Konstante (au&szlig;er 0), benutzt wird:
+  while(1){}
+  for(; true;){}
+Allgemein ist eine Endlosschleife dann gegeben, wenn die Bedingung nie false wird. Das kann auch dann der Fall sein,
+wenn die Bedingung von einer Variablen abh&auml;ngt, die innerhalb der Schleife aber nicht ver&auml;ndert wird:
+  int n = 1;
+  while (n &gt; 0) { //ist immer true
+    cout &lt;&lt; n &lt;&lt; endl;
+    //n wird nicht ver&auml;ndert
+  }
+
+e)
+1  /*** Aufgabe_03_1.cpp ***/
+2  #include &lt;iostream&gt;       // iostream-Bibliothek einbinden
+3  using namespace std;      // std-Namensraum verwenden
+4
+5  int main() {              // Beginn der Definition unserer Funktion main
+6   int *x;                  // x ist ein Zeiger auf ein int (Variablendeklaration)
+7   int y;                   // y ist ein int (Variablendeklaration)
+8   int z[1]={};             // z ist ein Array von int&#39;s mit der Gr&ouml;&szlig;e 1 (Variablendeklaration) <strong><span style="color:red;">mit 0 initialisiert (-0.05 P.)</span></strong>
+9   y = 1;                   // Setze den Wert von y auf 1
+10  x = &amp;y;                  // x zeige auf y
+11  z[0] = ++*x;             // referenzierter Wert von x (also y) wird um 1 erh&ouml;ht und (danach) in das erste Element des Arrays geschrieben
+12  cout &lt;&lt; z[*x-2] &lt;&lt; endl; // Ausgabe: Wert des ersten Array-Elements, also 2 (&quot;*x&quot; ist 2, &quot;*x-2&quot; daher 0, und &quot;z[0]&quot; ist 2)
+13  return 0;                // 0 zur&uuml;ckgeben: das Programm wurde erfolgreich ausgef&uuml;hrt
+14 }
+15 /*** Ende Aufgabe_03_1.cpp ***/
+</span></pre>
+</body></html>
