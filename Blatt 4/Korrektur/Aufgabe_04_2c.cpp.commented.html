@@ -1,0 +1,30 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_04_2c.cpp ***/
+#include &lt;iostream&gt;
+using namespace std;
+
+int produkt_summe_und_differenz(int const zahl1, int const zahl2, int &amp;summe, int *differenz) {
+  summe = zahl1 + zahl2;
+  *differenz = zahl1 - zahl2; //?
+  return zahl1 * zahl2;
+}
+
+int main() {
+  int const zahl1 = 148, zahl2 = -62;
+  int produkt, summe, differenz ;
+
+  produkt = produkt_summe_und_differenz(zahl1, zahl2, summe, &amp;differenz);
+
+  cout &lt;&lt; &quot;Produkt: &quot; &lt;&lt; produkt &lt;&lt; endl ;
+  cout &lt;&lt; &quot;Summe: &quot; &lt;&lt; summe &lt;&lt; endl ;
+  cout &lt;&lt; &quot;Differenz: &quot; &lt;&lt; differenz &lt;&lt; endl ;
+  return 0;
+ }
+
+ /* Ausgabe:
+ Produkt: -9176
+ Summe: 86
+ Differenz: 210
+ */
+ /*** Ende Aufgabe_04_2c.cpp ***/
+</span></pre></body></html>

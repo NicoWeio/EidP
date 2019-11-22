@@ -1,0 +1,46 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+Funktionsdeklaration:
+R&uuml;ckgabedatentyp Funktionsname (Datentyp des Parameters Name des Parameters);
+
+Funktionsdefinition:
+R&uuml;ckgabedatentyp Funktionsname (Datentyp des Parameters Name des Parameters) {
+  Anweisungen&hellip;
+  return R&uuml;ckgabewert;
+}
+
+Beispiel:
+int foo(int arg) {
+  return arg*2; //R&uuml;ckgabewert ist ein int
+}
+
+b)
+Da die L&auml;nge des &uuml;bergebenen Arrays f&uuml;r die Funktion nicht direkt erkennbar ist,
+sollte die L&auml;nge (Bereichsgrenze) als Argument mit &uuml;bergeben werden,
+um Bereichs&uuml;berschreitungen zu verhindern. Au&szlig;erdem ist bei der &Uuml;bergabe zu beachten,
+dass Arrays nicht als Kopie, sondern als Referenz &uuml;bergeben werden.
+
+c)
+Wenn eine Variable als Wert &uuml;bergeben wird, wird dieser als Kopie in einer lokalen Variable
+&uuml;bergeben, daher hat eine Ver&auml;nderung der &uuml;bergebenen Variable in der Funktion keinen Einfluss
+auf den Wert der Variablen au&szlig;erhalb der Funktion.
+Wenn die Variable als Zeiger &uuml;bergeben wird, wird zwar die Adresse der Variable als Kopie &uuml;bergeben,
+eine &Auml;nderung des referenzierten Wertes gilt jedoch auch au&szlig;erhalb der Funktion.
+Statt durch Zeiger kann der Wert der Variablen auch als Referenz &uuml;bergeben werden.
+In diesem Fall wird der Name des Parameters wie ein zweiter Name der &uuml;bergebenen Variable behandelt.
+
+d)
+Das Argument wird als Kopie in einer lokalen Variable im G&uuml;ltigkeitsbereich der Funktion gespeichert,
+und kann daher nicht ver&auml;ndert werden. Es muss darauf geachtet werden,
+dass die Datentypen von Argument und Parameter &uuml;bereinstimmen.
+<strong><span style="color:red;">Anzahl von Argumenten und Parametern muss &uuml;bereinstimmen (-0.1 P.)</span></strong>
+
+c)
+&quot;return 66;&quot; bedeutet, dass die Funktion den Wert 66 als unsigned char zur&uuml;ckgibt.
+Die 66 ist die numerische Repr&auml;sentation des Buchstaben &quot;B&quot; gem&auml;&szlig; der ASCII-Zeichentabelle.
+Wenngleich innerhalb des Programms chars wie regul&auml;re Zahlen auftreten, werden sie daher als Zeichen ausgegeben.
+Diese R&uuml;ckgabe kann entweder in einer anderen Variable <span style="background-color:#f00;">des gleichen Datentyps</span> abgespeichert, oder ohne
+Zwischenspeicherung als konstanter Wert weiterverwendet werden.
+<strong><span style="color:red;">Die R&uuml;ckgabe kann auch als Ganzzahl weiterverwendet werden (-0.05 P.)</span></strong>
+
+</span></pre></body></html>
