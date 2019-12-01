@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-#include "Aufgabe_06_2a.cpp"
-#include "Aufgabe_06_2b.cpp"
+#include "Aufgabe_06_2a.h"
+#include "Aufgabe_06_2b.h"
 
 void printArray(int const array[], unsigned int const size);
 

@@ -1,5 +1,11 @@
 #include "Aufgabe_06_2a.h"
 
+void swap(int &a, int &b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
 void bubblesort(int array[], unsigned int const start, unsigned int const end) {
   if (start < end - 1) {
     if (array[start] > array[start + 1]) {
