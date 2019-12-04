@@ -1,0 +1,41 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_05_2.cpp ***/
+#include &lt;iostream&gt;
+using namespace std;
+
+int *amul(int a[], int n, int s) {
+  for (int i = 0; i &lt; n; i++) {
+    a[i] *= s;
+  }
+  return a;
+}
+
+int *aadd(int a[], int nA, int b[], int nB) {
+  if (nA == nB) {
+    for (int i = 0; i &lt; nA; i++) {
+      a[i] += b[i];
+    }
+  }
+  return a;
+}
+
+int main() {
+  unsigned int const n = 5;
+  int a1[n] = {5, 2, 4, 7, 2};
+  int a2[n] = {6, 3, 3, -1, 9};
+
+  amul(aadd(aadd(a1, n, a2, n), n, a2, n), n, 2);
+
+  cout &lt;&lt; &quot;Ergebnis: [ &quot;;
+  for (unsigned int i = 0; i &lt; n - 1; ++i) {
+    cout &lt;&lt; a1[i] &lt;&lt; &quot;, &quot;;
+  }
+  cout &lt;&lt; a1[n - 1] &lt;&lt; &quot; ]&quot; &lt;&lt; endl;
+  return 0;
+}
+/* Ausgabe:
+Ergebnis: [ 34, 16, 20, 10, 40 ]
+*/
+/*** Ende Aufgabe_05_2.cpp ***/
+</span></pre>
+</body></html>

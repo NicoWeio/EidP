@@ -1,0 +1,51 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">i)
+s0 = 1    &rarr; Zustand 2 (x)
+Zustand 2 &rarr; Zustand 3 (x)
+Zustand 3 &rarr; Zustand 2 (y)
+Zustand 2 &rarr; Zustand 5 (y)
+
+&#39;xxyy&#39; wird nicht akzeptiert, da es in 5 terminiert und dies kein Endzustand ist (siehe F).
+
+
+ii)
+s0 = 1    &rarr; Zustand 1 (y)
+Zustand 1 &rarr; Zustand 1 (y)
+Zustand 1 &rarr; Zustand 2 (x)
+Zustand 2 &rarr; Zustand 3 (x)
+Zustand 3 &rarr; Zustand 4 (x)
+Zustand 4 &rarr; Zustand 2 (x)
+
+&#39;yyxxxx&#39; wird akzeptiert, da es in 2 terminiert und dies ein Endzustand ist (siehe F).
+
+
+
+Um alle Zust&auml;nde abzulaufen und einen Endzustand zu erreichen,
+bedarf es einer Eingabe mit mindestens 6 Zeichen.
+Generell auszuschlie&szlig;en sind Eingaben mit unter 4 Zeichen,
+da zum Durchlaufen aller 5 Zust&auml;nde mindestens 4 Schritte ben&ouml;tigt werden.
+Dass die k&uuml;rzeste L&ouml;sung 6 Buchstaben enth&auml;lt, l&auml;sst sich folgenderma&szlig;en belegen:
+
+- Zustand 5 f&uuml;hrt zur&uuml;ck in den Startzustand, daher werden mindestens 4+1=5 Zeichen ben&ouml;tigt
+- Zustand 1 (der Startzustand) f&uuml;hrt nur zu sich selbst oder zu Zustand 2, der bereits durchlaufen werden musste,
+  um in Zustand 5 zu gelangen. Das bedeutet einen weiteren Extra-Schritt, also mindestens 5+1=6 Schritte insgesamt.
+
+1. M&ouml;gliche L&ouml;sung: xyxxxx, da gilt:
+
+s0 = 1    &rarr; Zustand 2 (x)
+Zustand 2 &rarr; Zustand 5 (y)
+Zustand 5 &rarr; Zustand 1 (x)
+Zustand 1 &rarr; Zustand 2 (x)
+Zustand 2 &rarr; Zustand 3 (x)
+Zustand 3 &rarr; Zustand 4 (x)
+
+2. M&ouml;gliche L&ouml;sung: xyyxxx, da gilt:
+
+s0 = 1    &rarr; Zustand 2 (x)
+Zustand 2 &rarr; Zustand 5 (y)
+Zustand 5 &rarr; Zustand 1 (y)
+Zustand 1 &rarr; Zustand 2 (x)
+Zustand 2 &rarr; Zustand 3 (x)
+Zustand 3 &rarr; Zustand 4 (x)
+</span></pre>
+</body></html>

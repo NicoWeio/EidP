@@ -1,0 +1,50 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_05_3.cpp ***/
+#include &lt;iostream&gt;
+using namespace std;
+
+template &lt;typename T&gt; void rotate(T a[], int size) {
+  for (int i = 0; i &lt; (size - 1); i++) {
+    swap(a[i], a[i + 1]);
+  }
+}
+
+template &lt;typename U, typename V&gt; void pprint(const U v1, const V v2) {
+  cout &lt;&lt; &quot;[&quot; &lt;&lt; v1 &lt;&lt; &quot; : &quot; &lt;&lt; v2 &lt;&lt; &quot;]&quot; &lt;&lt; endl;
+}
+
+int main() {
+
+  unsigned int const n = 5;
+  int a1[] = {0, 1, 2, 3, 4};
+  char a2[] = {&#39;a&#39;, &#39;V&#39;, &#39;R&#39;, &#39;d&#39;, &#39;r&#39;};
+
+  rotate(a1, n);
+  cout &lt;&lt; &quot;Ergebnis: [ &quot;;
+  for (unsigned int i = 0; i &lt; n - 1; ++i) {
+    cout &lt;&lt; a1[i] &lt;&lt; &quot;, &quot;;
+  }
+  cout &lt;&lt; a1[n - 1] &lt;&lt; &quot; ]&quot; &lt;&lt; endl;
+
+  rotate(a2, n);
+
+  cout &lt;&lt; &quot;Ergebnis: [ &quot;;
+  for (unsigned int i = 0; i &lt; n - 1; ++i) {
+    cout &lt;&lt; a2[i] &lt;&lt; &quot;, &quot;;
+  }
+  cout &lt;&lt; a2[n - 1] &lt;&lt; &quot; ]&quot; &lt;&lt; endl;
+
+  pprint(1.0, &quot;Hello&quot;);
+  pprint(&#39;x&#39;, 42);
+
+  return 0;
+}
+/* Ausgabe:
+Ergebnis: [ 1, 2, 3, 4, 0 ]
+Ergebnis: [ V, R, d, r, a ]
+[1 : Hello]
+[x : 42]
+*/
+/*** Ende Aufgabe_05_3.cpp ***/
+</span></pre>
+</body></html>

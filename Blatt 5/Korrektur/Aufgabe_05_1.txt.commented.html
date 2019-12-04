@@ -1,0 +1,74 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+Eine Funktionsschablone ist eine Funktion, die f&uuml;r verschiedene Datentypen aufgerufen werden kann.
+Der Compiler generiert die ben&ouml;tigten spezifischen Funktionen daraus dann automatisch.
+Hier ein Beispiel:
+
+&quot;traditionell&quot;:
+
+	int quadrat(int x)
+	{
+		int y = x*x;
+		return y;
+	}
+
+Diese Funktion funktioniert nur f&uuml;r ganze Zahlen;
+f&uuml;r z.B Kommazahlen m&uuml;sste eine separate Funktion definiert werden.
+
+Mithilfe der Funktionsschablone:
+
+	template &lt;typename T&gt;
+	T quadrat(T x)
+	{
+		T y = x*x
+		return y;
+	}
+
+Diese Funktion kann direkt mit allen (sinnvollen) Datentypen aufgerufen werden.
+
+
+b)
+Soll die Funktion ein mehrdimensionales Array entgegennehmen,
+so m&uuml;ssen die Gr&ouml;&szlig;en aller Dimensionen au&szlig;er der ersten bekannt sein,
+damit die Adressen der einzelnen Elemente des Arrays korrekt berechnet werden k&ouml;nnen.
+<span style="background-color:yellow;">Dabei macht es keinen Unterschied, ob das Array statisch oder dynamisch ist. <strong><span style="color:red;">Das gilt nur f&uuml;r statische Arrays </span></strong></span>
+<span style="background-color:yellow;">Wird das Array allerdings nur als Pointer (auf das erste Element) entgegengenommen,
+so m&uuml;ssen keine Gr&ouml;&szlig;en der Dimensionen angegeben werden:</span> die Berechnung der Speicheradressen <span style="background-color:yellow;"><strong><span style="color:red;">Das funktioniert nur bei dynamischen Arrays</span></strong></span>
+&uuml;bernimmt dann der Programmierer.
+Wie gewohnt sollte auch die L&auml;nge des Arrays, beziehungsweise die Gr&ouml;&szlig;e
+der einzelnen Dimensionen mit &uuml;bergeben werden.
+<strong><span style="color:red;">(-0.1 P.)</span></strong>
+Beispiele:
+
+	int fkt(int a[][], int l){&hellip;}
+
+	&rarr; Gibt einen Fehler aus, da die Gr&ouml;&szlig;e der 2. Dimension nicht festgelegt ist.
+	  Die Speicheradressen der Elemente sind damit nicht bestimmbar.
+
+	int fkt(int a[][5], int l){&hellip;}
+
+	&rarr; Funktioniert f&uuml;r ein Array, dessen 2. Dimension 5 gro&szlig; ist.
+
+	int fkt(int *pA) { //angenommen, wir wissen, wie das &uuml;bergebene Array aufgebaut ist
+		&hellip;
+		int element = *(pa + indexDim1 * sizeDim2 + indexDim2);
+		&hellip;
+	}
+
+
+c)
+Der Compiler generiert die Funktionen f&uuml;r die Datentypen, mit welchen die Funktionsschablone aufgerufen wird. 
+<strong><span style="color:red;"><span style="color:red;">-&gt; Unterscheidung zwischen explizitem und impliziten Aufruf fehlt (-0.05 P.)</span></span></strong>
+
+
+
+d)
+inline-Funktionen werden vom Compiler (meist) in den beinhaltenden Block eingebunden,
+fast als w&auml;ren sie dort hineingeschrieben worden. Das beschleunigt das Programm,
+da im Gegensatz zu &quot;normalen&quot; Funktionsaufrufen keine extra
+Operationen (Argumente kopieren, &hellip;) erfolgen m&uuml;ssen,
+geht jedoch zu Lasten des Bedarfs an Speicherplatz.
+inline-Funktionen sind daher sinnvoll f&uuml;r kleine, h&auml;ufig gebrauchte Operationen,
+bei denen die Speicheroperationen, die f&uuml;r einen Funktionsaufruf ben&ouml;tigt werden,
+sonst ins Gewicht fallen w&uuml;rden.
+</span></pre></body></html>
