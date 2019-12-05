@@ -1,27 +1,29 @@
 a)
-Lokale Variablen sind lediglich in der Funktion (bzw. dem Block), in der sie definiert werden sichtbar,
-und werden beim Verlassen der Funktion ungültig. Globale Variablen werden im Hauptprogramm definiert
-und sind daher im gesamten Programm Sichtbar.
+Lokale Variablen sind lediglich im jeweiligen Block (z.B. einer Funktion), in dem sie definiert werden,
+sichtbar, und werden beim Verlassen der Funktion ungültig.
+Globale Variablen werden im Hauptprogramm definiert und sind daher im gesamten Programm sichtbar.
+Sie werden jedoch von lokalen Variablen "überschattet".
 
 b)
-Lokale statische Variablen sind über den Bereich ihrer Funktion hinaus gültig, das heißt eine lokale
-statische Variable behält auch nach Durchführung der Funktion ihren Wert, falls die Funktion erneut
-aufgerufen wird. Allerdings sind sie wie andere lokale Variablen auch nur in ihrer Funktion sichtbar,
+Lokale statische Variablen haben eine Lebenszeit über ihren Scope hinaus.
+Das heißt, sie behalten über Funktionsaufrufe hinweg ihren Wert.
+Allerdings sind sie genau wie andere lokale Variablen nur innerhalb ihres Scopes sichtbar,
 können also nicht außerhalb der Funktion aufgerufen werden.
 
 c)
-Mithilfe von Namensräumen lassen sich potentielle Konflikte durch gleiche Namensgebungen verschiedener
-Funktionen oder Variablen innerhalb größerer Softwareprojekte umgehen. Ein Beispiel für einen Namensraum
-ist der Namensraum "std".
+Mithilfe von Namensräumen lassen sich potenzielle Konflikte durch gleiche Namensgebungen
+verschiedener Funktionen oder Variablen innerhalb größerer Softwareprojekte verhindern.
+Ein Beispiel ist der Namensraum "std".
 
 d)
-Rekursive Funktionen sind Funktionen sind Funktionen, die sich (bis zum erreichen einer Abbruchbedingung)
-fortwährend selbst aufrufen. Dabei gilt, dass jeder rekursive Algorithmus auch iterativ implementiert werden
-kann und umgekehrt.
+Rekursive Funktionen sind Funktionen, die sich (bis zum Erreichen einer Abbruchbedingung fortwährend)
+selbst aufrufen. Dabei gilt, dass jeder rekursive Algorithmus
+auch iterativ implementiert werden kann und umgekehrt.
 
 e)
 Durch das Prinzip der Rekursion wird ein komplexes Problem gelöst, indem es in wiederholten Funktionsaufrufen
-immer weiter auf leichter lösbare Problematiken reduzieren. Die Funktion ruft sich so lange mit leichter Veränderung
-selbst auf, bis das Problem ein für den Computer lösbares Ausmaß erreicht hat, was durch die Rekursionsverankerung
-markiert wird. Diese bricht die Rekursion ab und reicht das Ergebnis von dieser untersten Ebene aufsteigend über die
-Funktionsaufrufe weiter, sodass am Ende das Endergebnis zurückgegeben wird.
+immer weiter auf leichter lösbare Problematiken reduziert wird.
+Die Funktion ruft sich so lange mit (leichter) Veränderung selbst auf,
+bis das modifizierte Problem unmittelbar lösbar ist, also die Rekursionsverankerung erreicht ist.
+Diese beendet die Rekursion und reicht das Ergebnis von dieser untersten Ebene aufsteigend über die
+Funktionsaufrufe weiter, sodass zuletzt das Endergebnis zurückgegeben wird.
