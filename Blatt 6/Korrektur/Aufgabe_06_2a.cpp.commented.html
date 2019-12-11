@@ -1,0 +1,20 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">#include &quot;Aufgabe_06_2a.h&quot;
+
+void swap(int &amp;a, int &amp;b) {
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+void bubblesort(int array[], unsigned int const start, unsigned int const end) {
+  if (start &lt; end - 1) {
+    if (array[start] &gt; array[start + 1]) {
+      swap(array[start], array[start + 1]);
+      bubblesort(array, 0, end);
+    } else {
+      bubblesort(array, start + 1, end);
+    }
+  }
+}
+</span></pre></body></html>

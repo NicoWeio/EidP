@@ -1,0 +1,29 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">#include &quot;Aufgabe_06_2b.h&quot;
+
+int finde(int wert, int folge[], unsigned int const intervallLaenge) {
+  if (intervallLaenge == 1) {
+    // wir kennen nicht den Index in der gesamten Folge &ndash;
+    // der wird durch die Rekursion zusammenaddiert
+    return (folge[0] == wert) ? 0 : -1;
+  }
+
+  int part1Laenge = intervallLaenge / 2;
+  int part2Laenge = intervallLaenge - part1Laenge;
+  int *part1 = &amp;folge[0];           // Indizes 0 bis part1Laenge-1
+  int *part2 = &amp;folge[part1Laenge]; // Indizes part1Laenge bis intervallLaenge-1
+
+  // gr&ouml;&szlig;er als das gr&ouml;&szlig;te Element von Part 1?
+  if (wert &gt; folge[part1Laenge - 1]) {
+    //&rarr;Wert muss im 2. Part liegen
+    int result = finde(wert, part2, part2Laenge);
+    return (result == -1) ? -1 : result + part1Laenge;
+  } else {
+    //&rarr;Wert muss im 1. Part liegen
+    int result = finde(wert, part1, part1Laenge);
+    return result;
+  }
+
+  return -1;
+}
+</span></pre></body></html>

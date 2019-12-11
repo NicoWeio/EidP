@@ -1,0 +1,31 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+Lokale Variablen sind lediglich im jeweiligen Block (z.B. einer Funktion), in dem sie definiert werden,
+sichtbar, und werden beim Verlassen der Funktion ung&uuml;ltig.
+Globale Variablen werden <span style="background-color:yellow;">im Hauptprogramm definiert</span> und sind daher im gesamten Programm sichtbar. <span style="color:red;"><span style="color:red;">// Au&szlig;erhalb des Hauptprogramms (-0.05 P.)</span></span>
+Sie werden jedoch von lokalen Variablen &quot;&uuml;berschattet&quot;.
+
+b)
+Lokale statische Variablen haben eine Lebenszeit &uuml;ber ihren Scope hinaus.
+Das hei&szlig;t, sie behalten &uuml;ber Funktionsaufrufe hinweg ihren Wert.
+Allerdings sind sie genau wie andere lokale Variablen nur innerhalb ihres Scopes sichtbar,
+k&ouml;nnen also nicht au&szlig;erhalb der Funktion aufgerufen werden.
+
+c)
+Mithilfe von Namensr&auml;umen lassen sich potenzielle Konflikte durch gleiche Namensgebungen
+verschiedener Funktionen oder Variablen innerhalb gr&ouml;&szlig;erer Softwareprojekte verhindern.
+Ein Beispiel ist der Namensraum &quot;std&quot;.
+
+d)
+Rekursive Funktionen sind Funktionen, die sich (bis zum Erreichen einer Abbruchbedingung fortw&auml;hrend)
+selbst aufrufen. Dabei gilt, dass jeder rekursive Algorithmus
+auch iterativ implementiert werden kann und umgekehrt.
+
+e)
+Durch das Prinzip der Rekursion wird ein komplexes Problem gel&ouml;st, indem es in wiederholten Funktionsaufrufen
+immer weiter auf leichter l&ouml;sbare Problematiken reduziert wird.
+Die Funktion ruft sich so lange mit (leichter) Ver&auml;nderung selbst auf,
+bis das modifizierte Problem unmittelbar l&ouml;sbar ist, also die Rekursionsverankerung erreicht ist.
+Diese beendet die Rekursion und reicht das Ergebnis von dieser untersten Ebene aufsteigend &uuml;ber die
+Funktionsaufrufe weiter, sodass zuletzt das Endergebnis zur&uuml;ckgegeben wird.
+</span></pre></body></html>
