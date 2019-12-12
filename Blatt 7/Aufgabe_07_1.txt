@@ -1,0 +1,40 @@
+a)
+Eine Klasse ist ähnlich wie ein struct ein vom Programmierer definierter
+Datentyp. Die Klasse beschreibt die Eigenschaften der zur Klasse gehörenden
+Objekte, sowie der auf diese anwendbaren Operationen.
+Als ein Objekt wird eine einzelne Instanz einer Klasse mit konkret definierten
+Werten bezeichnet.
+
+b)
+Wenn ein struct verwendet wird, sind alle Komponenten automatisch, während sie bei
+der Verwendung von class private sind, bis sie vom Programmierer als public gekennzeichnet werden
+
+c)
+Konstruktoren werden automatisch beim Erstellen eines Objektes aufgerufen,
+und ermöglicht die fehlerfreie Initialisierung eines Objektes, beispielsweise
+durch den default Konstruktor. Der Destruktor wird aufgerufen, sobald der Block,
+in dem das Objekt erstellt wurde, verlassen wird und sorgt für die Zerstörung des Objektes verantwortlich
+
+d)
+Beim Prinzip des "information hiding" wird die Definition der Klasse von der
+Implementierung getrennt, indem die konkrete Implementierung in einer anderen
+Datei stattfindet.
+
+e)
+Es können mehrere Methoden mit gleichem Namen definiert werden, wird vom Überladen
+der Methode gesprochen. Die gleichnamigen Methoden können vom Compiler durch die unterschiedlichen
+Argumentlisten differenziert werden.
+
+f)
+Der Zweck dieser Teilung besteht darin, dass auf private Eigenschaften einer Klasse nicht von anderen
+Klassen bzw. Methoden, außer der Klasse in der sie definiert wurden zugegriffen werden kann.
+
+g)
+In diesem Kontext wird von einer Delegierung gesprochen, wenn ein Konstruktor automatisch einen
+anderen Konstruktor aufruft, und dadurch die Arbeit in gewisser Weise delegiert. Dadurch kann unter
+anderem überflüssiger Code vermieden werden.
+
+h)
+Bei Verwendung von Templates wird vom Compiler automatisch eine konkrete Klasse erzeugt. Daher
+werden in diesem Fall Definition und Implementierung nicht nach dem "information hiding" Prinzip
+getrennt, sondern finden in der Header-datei statt.
