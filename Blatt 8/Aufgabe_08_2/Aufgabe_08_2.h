@@ -135,8 +135,39 @@ template <typename T> void Schlange<T>::print() {
 // Verlangte Methode: insertAfter(Objekt *e)
 // Hilfsschlange und umkopieren nicht erlaubt
 template <typename T>
-typename Schlange<T>::Objekt *Schlange<T>::insertAfter(Objekt *e, T const &d) {}
+typename Schlange<T>::Objekt *Schlange<T>::insertAfter(Objekt *e, T const &d) {
+  Objekt *neuesElement = new Objekt; // neues Objekt anlegen
+  neuesElement->data = d;            // Nutzdaten speichern
+
+  // Pointer auf das nächste Element bzw. nullptr übernehmen
+  neuesElement->tail = e->tail;
+
+  if (e->tail == nullptr) {
+    // Sonderfall: der Ende-Zeiger muss aktualisiert werden
+    ez = neuesElement;
+  }
+
+  e->tail = neuesElement; // Zeiger des vorherigen Elements aktualisieren
+
+  return neuesElement;
+}
 
 // Verlangte Methode: manifold()
-template <typename T> void Schlange<T>::manifold() {}
+template <typename T> void Schlange<T>::manifold() {
+  if (empty())
+    return;
+
+  Objekt *p = sz;
+  while (p != nullptr) {
+    T val = p->data;
+
+    insertAfter(p, val);
+    if (val % 2 == 0) {
+      insertAfter(p, val);
+      p = p->tail; // das gerade erstellte Element überspringen
+    }
+
+    p = p->tail->tail; // das gerade erstellte Element überspringen und weiter
+  }
+}
 /*** Ende Aufgabe_08_2.h ***/
