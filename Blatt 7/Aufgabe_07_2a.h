@@ -3,7 +3,7 @@
 
 class Punkt {
 private:
-  unsigned int n;
+  unsigned int const n;
   double *koordinaten;
 
 public:

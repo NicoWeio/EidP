@@ -17,3 +17,7 @@ int main() {
   b.skalarMultiplikation(3);
   cout << a.skalarProdukt(b) << endl;
 }
+
+/* Ausgabe:
+6.93
+*/

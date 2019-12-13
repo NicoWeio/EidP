@@ -2,8 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Punkt::Punkt(unsigned int inputN) {
-  n = inputN;
+Punkt::Punkt(unsigned int inputN) : n(inputN) {
   koordinaten = new double[n];
 
   for (unsigned int i = 0; i < n; i++) { // mit 0 initialisieren
