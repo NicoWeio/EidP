@@ -31,13 +31,13 @@ int main() {
                  3                              10
          2               5               9
      0
-Vorgaenger von 0 =
-Vorgaenger von 2 =
-Vorgaenger von 4 =
-Vorgaenger von 6 =
-Vorgaenger von 8 =
-Vorgaenger von 10 =
-Vorgaenger von 12 =
-Anzahl der Knoten von Baum 1:
+Vorgaenger von 0 = n/a
+Vorgaenger von 2 = 0
+Vorgaenger von 4 = n/a
+Vorgaenger von 6 = n/a
+Vorgaenger von 8 = 5
+Vorgaenger von 10 = 9
+Vorgaenger von 12 = n/a
+Anzahl der Knoten von Baum 1: 7
 */
 /*** Ende Aufgabe_08_3.cpp ***/

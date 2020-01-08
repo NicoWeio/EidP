@@ -173,12 +173,32 @@ void BinTree<T>::predValue(T const &x) {
 // ist nicht erlaubt!!!
 template<typename T>
 unsigned int BinTree<T>::countNodes(Node *node) {
-
+    return (node->left != nullptr ? countNodes(node->left) : 0) +
+           (node->right != nullptr ? countNodes(node->right) : 0) + 1;
 }
 
 // Verlangte Methode: pred(T const &x)
 template<typename T>
 typename BinTree<T>::Node *BinTree<T>::pred(T const &x) {
+    Node *xNode = root;
+    while (xNode != nullptr) {
+        if (xNode->data == x) break;
+        if (xNode->data >= x) {
+            xNode = xNode->left;
+        } else {
+            xNode = xNode->right;
+        }
+    }
 
+    if (xNode == nullptr) return nullptr;
+
+    Node *p2 = xNode->left;
+    while (p2 != nullptr) {
+        if (p2->right == nullptr) {
+            return p2;
+        }
+        p2 = p2->right;
+    }
+    return nullptr;
 }
 /*** Ende Aufgabe_08_3.h ***/
