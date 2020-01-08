@@ -1,0 +1,20 @@
+a)
+Definition: Abstrakter Datentyp (ADT) ist ein Tripel (T, F, A). Dabei ist…
+• T eine nicht-leere Menge von Datenobjekten,
+• F eine Menge von Operationen,
+• A eine nicht-leere Menge von Axiomen, die die Bedeutung der Operationen erklären
+
+b)
+Eigenschaften:
+• Wenn man einen ADT kennt, dann kann man ihn überall verwenden
+• Implementierung der Funktionen für Benutzer nicht von Bedeutung
+• Trennung von Spezifikation und Implementierung
+• Ermöglicht späteren Austausch der Implementierung, ohne dass sich der Ablauf anderer Programme, die ihn benutzen, ändert
+
+c)
+Kopierkonstruktor:
+• Initialisierung einer neu deklarierten Instanz von existierender Instanz
+Zuweisung:
+• wirkt zwar wie Kopierkonstruktor (flache Kopie bzw. tiefe Kopie), überschreibt jedoch Speicher der existierenden Variable mit dem Speicher der zuweisenden, existierenden Variable
+• zusätzlich ggf. Aufräumen: Freigabe dynamischen Speichers
+• außerdem: Rückgabe einer Referenz auf sich selbst
