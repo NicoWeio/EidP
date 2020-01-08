@@ -142,7 +142,7 @@ typename Schlange<T>::Objekt *Schlange<T>::insertAfter(Objekt *e, T const &d) {
   // Pointer auf das nächste Element bzw. nullptr übernehmen
   neuesElement->tail = e->tail;
 
-  if (e->tail == nullptr) {
+  if (e->tail == nullptr) { // war e das letzte Element?
     // Sonderfall: der Ende-Zeiger muss aktualisiert werden
     ez = neuesElement;
   }
@@ -161,13 +161,12 @@ template <typename T> void Schlange<T>::manifold() {
   while (p != nullptr) {
     T val = p->data;
 
-    insertAfter(p, val);
+    p = insertAfter(p, val);
     if (val % 2 == 0) {
-      insertAfter(p, val);
-      p = p->tail; // das gerade erstellte Element überspringen
+      p = insertAfter(p, val);
     }
 
-    p = p->tail->tail; // das gerade erstellte Element überspringen und weiter
+    p = p->tail;
   }
 }
 /*** Ende Aufgabe_08_2.h ***/
