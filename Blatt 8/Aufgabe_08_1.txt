@@ -18,3 +18,18 @@ Zuweisung:
 • wirkt zwar wie Kopierkonstruktor (flache Kopie bzw. tiefe Kopie), überschreibt jedoch Speicher der existierenden Variable mit dem Speicher der zuweisenden, existierenden Variable
 • zusätzlich ggf. Aufräumen: Freigabe dynamischen Speichers
 • außerdem: Rückgabe einer Referenz auf sich selbst
+
+d)
+Flache (shallow) Kopien funktionieren byteweise. Wenn das zu kopierende Objekt also einen Pointer enthält, wird dieser einfach übernommen. Das führt aber dazu, dass eine Veränderung des Werts, auf den der Pointer zeigt, sowohl im Original als auch in der Kopie stattfindet.
+Tiefe (deep) Kopien sorgen hingegen dafür, dass auch die hinter den Pointer liegenden Werte kopiert werden.
+
+e)
+Automatisch erzeugte Methoden können durch ein Schlüsselwort erzwungen (→default) bzw. verhindert (→delete) werden.
+Beispiel 1, automatisch erzeugte Methode erzwingen:
+  Stack() = default;
+Beispiel 2, automatisch erzeugte Methode verhindern:
+  Stack() = delete;
+
+f)
+Die minimale Anzahl an Knoten für einen Baum der Höhe n ist n. Das ist der Fall, wenn jeder Knoten (außer den Blättern) genau einen Unterbaum hat.
+Die maximale Anzahl an Knoten für einen Baum der Höhe n ist 2^h – 1.
