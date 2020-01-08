@@ -1,0 +1,38 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+Definition: Abstrakter Datentyp (ADT) ist ein Tripel (T, F, A). Dabei ist&hellip;
+&bull; T eine nicht-leere Menge von Datenobjekten,
+&bull; F eine Menge von Operationen,
+&bull; A eine nicht-leere Menge von Axiomen, die die Bedeutung der Operationen erkl&auml;ren
+
+b)
+Eigenschaften:
+&bull; Wenn man einen ADT kennt, dann kann man ihn &uuml;berall verwenden
+&bull; Implementierung der Funktionen f&uuml;r Benutzer nicht von Bedeutung
+&bull; Trennung von Spezifikation und Implementierung
+&bull; Erm&ouml;glicht sp&auml;teren Austausch der Implementierung, ohne dass sich der Ablauf anderer Programme, die ihn benutzen, &auml;ndert
+
+c)
+Kopierkonstruktor:
+&bull; Initialisierung einer neu deklarierten Variable von existierender Variable
+Zuweisung:
+&bull; wirkt zwar wie Kopierkonstruktor (flache Kopie bzw. tiefe Kopie), &uuml;berschreibt jedoch Speicher der existierenden Variable mit dem Speicher der zuweisenden, existierenden Variable
+&bull; zus&auml;tzlich ggf. Aufr&auml;umen: Freigabe dynamischen Speichers
+&bull; au&szlig;erdem: R&uuml;ckgabe einer Referenz auf sich selbst
+
+d)
+Flache (shallow) Kopien funktionieren <span style="background-color:yellow;">byteweise</span>. <span style="color:red;"><span style="color:red;">Beide Arten der Kopie geschehen Byte-weise, der Unterschied liegt darin, was kopiert wird (Nur der Zeiger auf das Objekt oder alle Daten).
+</span></span>Wenn das zu kopierende Objekt also einen Pointer enth&auml;lt, wird dieser einfach &uuml;bernommen. Das f&uuml;hrt aber dazu, dass eine Ver&auml;nderung des Werts, auf den der Pointer zeigt, sowohl im Original als auch in der Kopie stattfindet.
+Tiefe (deep) Kopien sorgen hingegen daf&uuml;r, dass auch die hinter den Pointer liegenden Werte kopiert werden.
+
+e)
+Automatisch erzeugte Methoden k&ouml;nnen durch ein Schl&uuml;sselwort erzwungen (&rarr;default) bzw. verhindert (&rarr;delete) werden.
+Beispiel 1, automatisch erzeugte Methode erzwingen:
+  Stack() = default;
+Beispiel 2, automatisch erzeugte Methode verhindern:
+  Stack() = delete;
+
+f)
+Die minimale Anzahl an Knoten f&uuml;r einen Baum der H&ouml;he n ist n. Das ist der Fall, wenn jeder Knoten (au&szlig;er den Bl&auml;ttern) genau einen Unterbaum hat.
+Die maximale Anzahl an Knoten f&uuml;r einen Baum der H&ouml;he n ist 2^h&nbsp;&ndash; 1.
+</span></pre></body></html>

@@ -1,0 +1,45 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_08_3.cpp ***/
+#include &quot;Aufgabe_08_3.h&quot;
+using namespace std;
+
+int main() {
+  int array1[] = {8, 3, 2, 0, 5, 10, 9};
+  unsigned int length = sizeof(array1) / sizeof(int);
+
+  BinTree&lt;int&gt; baum1;
+
+  for (unsigned int i = 0; i &lt; length; ++i) {
+    baum1.insert(array1[i]);
+  }
+  baum1.printToConsole();
+
+  /* Test von predValue() */
+  for (unsigned int i = 0; i &lt; length; ++i) {
+    cout &lt;&lt; &quot;Vorgaenger von &quot; &lt;&lt; i * 2 &lt;&lt; &quot; = &quot;;
+    baum1.predValue(i * 2);
+    cout &lt;&lt; endl;
+  }
+
+  /* Test von countNodes() */
+  cout &lt;&lt; &quot;Anzahl der Knoten von Baum 1: &quot; &lt;&lt; baum1.countNodes() &lt;&lt; endl;
+
+  return 0;
+}
+/* Ausgabe:
+8
+3                              10
+2               5               9
+0
+Vorgaenger von 0 = n/a
+Vorgaenger von 2 = 0
+Vorgaenger von 4 = n/a
+Vorgaenger von 6 = n/a
+Vorgaenger von 8 = 5
+Vorgaenger von 10 = 9
+Vorgaenger von 12 = n/a
+Anzahl der Knoten von Baum 1: 7
+*/
+/*** Ende Aufgabe_08_3.cpp ***/
+</span></pre>
+</body></html>

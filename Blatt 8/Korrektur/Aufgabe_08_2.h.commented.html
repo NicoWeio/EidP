@@ -1,0 +1,176 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_08_2.h ***/
+#include &lt;cstdlib&gt;
+#include &lt;iostream&gt;
+
+template &lt;typename T&gt; class Schlange {
+private:
+  struct Objekt { // interner Datentyp
+    Objekt *tail; // Zeiger auf Schlangenschwanz
+    T data;       // Datenfeld
+  } * sz, *ez;
+
+  void error(char const *info); // Fehlermeldung
+
+public:
+  Schlange(); // Konstruktor
+  Schlange(const Schlange&lt;T&gt; &amp;s);
+  Schlange&lt;T&gt; &amp;operator=(const Schlange&lt;T&gt; &amp;s);
+  bool operator==(const Schlange&lt;T&gt; &amp;s);
+  void enq(T &amp;x);
+  void deq();
+  T front();
+  Objekt *frontObj();
+  void print();
+  bool empty(); // Schlange leer?
+  void clear(); // loescht alle Eintraege
+  ~Schlange();  // Destruktor
+
+  // Verlangte Methoden (siehe Dateiende)
+  void manifold();
+  Objekt *insertAfter(Objekt *e, T const &amp;d);
+};
+
+template &lt;typename T&gt; Schlange&lt;T&gt;::Schlange() {
+  sz = nullptr;
+  ez = nullptr;
+}
+
+template &lt;typename T&gt; Schlange&lt;T&gt;::Schlange(const Schlange&lt;T&gt; &amp;s) {
+  ez = nullptr;
+  Objekt *ptr = s.sz;
+  while (ptr != nullptr) {
+    enq(ptr-&gt;data);
+    ptr = ptr-&gt;tail;
+  }
+}
+
+template &lt;typename T&gt;
+Schlange&lt;T&gt; &amp;Schlange&lt;T&gt;::operator=(const Schlange&lt;T&gt; &amp;s) {
+  if (this == &amp;s)
+    return *this;
+  clear(); // Speicher freigeben
+  Objekt *ptr = s.sz;
+  while (ptr != nullptr) {
+    enq(ptr-&gt;data);
+    ptr = ptr-&gt;tail;
+  }
+  return *this;
+}
+
+template &lt;typename T&gt; Schlange&lt;T&gt;::~Schlange() { clear(); }
+
+template &lt;typename T&gt; bool Schlange&lt;T&gt;::operator==(const Schlange &amp;s) {
+  if (this == &amp;s)
+    return true;
+  Objekt *ptr1 = sz; // this-&gt;sz
+  Objekt *ptr2 = s.sz;
+  while (ptr1 != nullptr &amp;&amp; ptr2 != nullptr) {
+    if (ptr1-&gt;data != ptr2-&gt;data)
+      return false;
+    ptr1 = ptr1-&gt;tail;
+    ptr2 = ptr2-&gt;tail;
+  }
+  return (ptr1 == ptr2);
+}
+
+template &lt;typename T&gt; T Schlange&lt;T&gt;::front() {
+  if (empty())
+    error(&quot;leer&quot;);
+  return sz-&gt;data;
+}
+
+template &lt;typename T&gt; typename Schlange&lt;T&gt;::Objekt *Schlange&lt;T&gt;::frontObj() {
+  if (empty())
+    error(&quot;leer&quot;);
+  return sz;
+}
+
+template &lt;typename T&gt; bool Schlange&lt;T&gt;::empty() { return (ez == nullptr); }
+
+template &lt;typename T&gt; void Schlange&lt;T&gt;::clear() {
+  while (!empty())
+    deq();
+}
+
+template &lt;typename T&gt; void Schlange&lt;T&gt;::error(char const *info) {
+  std::cerr &lt;&lt; info &lt;&lt; std::endl;
+  exit(1);
+}
+
+template &lt;typename T&gt; void Schlange&lt;T&gt;::enq(T &amp;x) {
+  Objekt *obj = new Objekt; // neues Objekt anlegen
+  obj-&gt;data = x;            // Nutzdaten speichern
+  obj-&gt;tail = nullptr;
+  if (empty())
+    sz = obj; // falls leer nach vorne,
+  else
+    ez-&gt;tail = obj; // sonst hinten anhaengen
+  ez = obj;         // Endezeiger aktualisieren
+}
+
+template &lt;typename T&gt; void Schlange&lt;T&gt;::deq() {
+  if (empty())
+    error(&quot;leer&quot;);
+  Objekt *obj = sz; // Zeiger auf Kopf retten
+  sz = sz-&gt;tail;    // Start auf 2. Element
+  if (sz == nullptr)
+    ez = nullptr; // Schlange leer!
+  delete obj;     // ehemaliges 1. Element loeschen
+}
+
+template &lt;typename T&gt; void Schlange&lt;T&gt;::print() {
+  if (empty()) {
+    return;
+  }
+  Objekt *obj = sz;
+  while (obj != nullptr) {
+    if (obj != sz)
+      std::cout &lt;&lt; &quot;, &quot;;
+    std::cout &lt;&lt; obj-&gt;data;
+    obj = obj-&gt;tail;
+  }
+  std::cout &lt;&lt; std::endl;
+}
+
+// Verlangte Methode: insertAfter(Objekt *e)
+// Hilfsschlange und umkopieren nicht erlaubt
+template &lt;typename T&gt;
+typename Schlange&lt;T&gt;::Objekt *Schlange&lt;T&gt;::insertAfter(Objekt *e, T const &amp;d) {
+  Objekt *neuesElement = new Objekt; // neues Objekt anlegen
+  neuesElement-&gt;data = d;            // Nutzdaten speichern
+
+  // Pointer auf das n&auml;chste Element bzw. nullptr &uuml;bernehmen
+  neuesElement-&gt;tail = e-&gt;tail;
+
+  if (e-&gt;tail == nullptr) {
+    // Sonderfall: der Ende-Zeiger muss aktualisiert werden
+    ez = neuesElement;
+  }
+
+  e-&gt;tail = neuesElement; // Zeiger des vorherigen Elements aktualisieren
+
+  return neuesElement;
+}
+
+// Verlangte Methode: manifold()
+template &lt;typename T&gt; void Schlange&lt;T&gt;::manifold() {
+  if (empty())
+    return;
+
+  Objekt *p = sz;
+  while (p != nullptr) {
+    T val = p-&gt;data;
+
+    <span style="background-color:yellow;">insertAfter(p, val);</span>
+    if (val % 2 == 0) {
+      <span style="background-color:yellow;">insertAfter(p, val); <strong><span style="color:red;">// insertAfter gibt das eingef&uuml;gte Element zur&uuml;ck. Anstatt also anschlie&szlig;end &uuml;ber die Elemente zu springen w&auml;re es eleganter,
+                           // eine Zuweisung zu verwenden. Funktionsweise stimmt nat&uuml;rlich dennoch.</span></strong></span>
+      p = p-&gt;tail; // das gerade erstellte Element &uuml;berspringen
+    }
+
+    p = p-&gt;tail-&gt;tail; // das gerade erstellte Element &uuml;berspringen und weiter
+  }
+}
+/*** Ende Aufgabe_08_2.h ***/
+</span></pre></body></html>

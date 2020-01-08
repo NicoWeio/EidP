@@ -1,0 +1,191 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_08_3.h ***/
+#include &lt;cstdlib&gt;
+#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;iostream&gt;
+#include &lt;ostream&gt;
+
+template &lt;typename T&gt; class BinTree {
+private:
+  struct Node {
+    T data;
+    Node *left, *right;
+  } * root;
+
+  Node *insert(Node *node, T key);
+  bool isElem(Node *node, T key) const;
+  void clear(Node *node);
+  void print(Node *node) const;
+
+  // Verlangte Methoden (siehe Dateiende)
+  unsigned int countNodes(Node *node);
+  Node *pred(T const &amp;x);
+
+public:
+  BinTree() { root = nullptr; }
+  BinTree(std::string &amp;filename);
+  ~BinTree() { clear(); }
+  void print() const { print(root); }
+  void insert(T x) { root = insert(root, x); }
+  bool isElem(T x) const { return isElem(root, x); }
+  void clear() {
+    clear(root);
+    root = nullptr;
+  }
+  void printLevel(std::ostream &amp;os, Node *node, int level, int current,
+                  int offset) const;
+  int depth(Node *node) const {
+    return (node == nullptr
+                ? 0
+                : 1 + std::max(depth(node-&gt;left), depth(node-&gt;right)));
+  }
+  void printToConsole() const;
+  void printAsTree(std::ostream &amp;os) const;
+
+  // Vorgegebene Methoden
+  unsigned int countNodes() { return countNodes(root); }
+  void predValue(T const &amp;x);
+};
+
+template &lt;typename T&gt;
+BinTree&lt;T&gt;::BinTree(std::string &amp;filename) : root(nullptr) {
+  std::ifstream source;
+  source.open(filename.c_str());
+  if (!source.is_open()) {
+    exit(1);
+  }
+
+  T s;
+  while (!source.eof()) {
+    source &gt;&gt; s;
+    insert(s);
+  }
+  source.close();
+}
+
+template &lt;typename T&gt; bool BinTree&lt;T&gt;::isElem(Node *node, T key) const {
+  if (node == nullptr)
+    return false;
+  if (node-&gt;data == key)
+    return true;
+  if (node-&gt;data &lt; key)
+    return isElem(node-&gt;right, key);
+  return isElem(node-&gt;left, key);
+}
+
+template &lt;typename T&gt; void BinTree&lt;T&gt;::clear(Node *node) {
+  if (node == nullptr)
+    return;           // Rekursionsabbruch
+  clear(node-&gt;left);  // linken Unterbaum loeschen
+  clear(node-&gt;right); // rechten Unterbaum loeschen
+  delete node;        // Knoten loeschen
+}
+
+template &lt;typename T&gt;
+typename BinTree&lt;T&gt;::Node *BinTree&lt;T&gt;::insert(Node *node, T key) {
+  if (node == nullptr) {
+    node = new Node;
+    node-&gt;data = key;
+    node-&gt;left = node-&gt;right = nullptr;
+    return node;
+  }
+  if (node-&gt;data &lt; key)
+    node-&gt;right = insert(node-&gt;right, key);
+  else if (node-&gt;data &gt; key)
+    node-&gt;left = insert(node-&gt;left, key);
+
+  return node;
+}
+
+template &lt;typename T&gt; void BinTree&lt;T&gt;::print(Node *node) const {
+  if (node == nullptr)
+    return;
+  print(node-&gt;left);
+  std::cout &lt;&lt; node-&gt;data &lt;&lt; std::endl;
+  print(node-&gt;right);
+}
+
+template &lt;typename T&gt; void BinTree&lt;T&gt;::printToConsole() const {
+  printAsTree(std::cout);
+}
+
+template &lt;typename T&gt; void BinTree&lt;T&gt;::printAsTree(std::ostream &amp;os) const {
+  int depth = this-&gt;depth(this-&gt;root);
+  for (int i = 1; i &lt;= depth; ++i) {
+    printLevel(os, root, i, 1, 32);
+    os &lt;&lt; &quot;\n&quot;;
+  }
+}
+
+template &lt;typename T&gt;
+void BinTree&lt;T&gt;::printLevel(std::ostream &amp;os, Node *node, int level,
+                            int current, int offset) const {
+  if (level == current) {
+    for (int i = 0; i &lt; offset - 2; ++i) {
+      os &lt;&lt; &quot; &quot;;
+    }
+    if (node != nullptr) {
+      os &lt;&lt; std::setfill(&#39; &#39;) &lt;&lt; std::setw(4);
+      os &lt;&lt; node-&gt;data;
+    } else {
+      os &lt;&lt; &quot;    &quot;;
+    }
+    for (int i = 0; i &lt; offset - 2; ++i) {
+      os &lt;&lt; &quot; &quot;;
+    }
+
+  } else {
+    if (node == nullptr) {
+      printLevel(os, nullptr, level, current + 1, offset / 2);
+      printLevel(os, nullptr, level, current + 1, offset / 2);
+    } else {
+      printLevel(os, node-&gt;left, level, current + 1, offset / 2);
+      printLevel(os, node-&gt;right, level, current + 1, offset / 2);
+    }
+  }
+}
+
+// Vorgegebene Methode: predValue(T x)
+template &lt;typename T&gt; void BinTree&lt;T&gt;::predValue(T const &amp;x) {
+  typename BinTree&lt;T&gt;::Node *erg = pred(x);
+  if (erg != nullptr) {
+    std::cout &lt;&lt; erg-&gt;data;
+  } else {
+    std::cout &lt;&lt; &quot;n/a&quot;;
+  }
+}
+
+// Verlangte Methode: countNodes(Node *node)
+// Die Verwendung von statischen Variablen
+// ist nicht erlaubt!!!
+template &lt;typename T&gt; unsigned int BinTree&lt;T&gt;::countNodes(Node *node) {
+    return (node-&gt;left != nullptr ? countNodes(node-&gt;left) : 0) + (node-&gt;right != nullptr ? countNodes(node-&gt;right) : 0) +1;
+}
+
+// Verlangte Methode: pred(T const &amp;x)
+template &lt;typename T&gt; typename BinTree&lt;T&gt;::Node *BinTree&lt;T&gt;::pred(T const &amp;x) {
+    Node *xNode = root;
+    while (xNode != nullptr) {
+        if (xNode-&gt;data == x) break;
+        if (xNode-&gt;data &gt;= x) {
+            xNode = xNode-&gt;left;
+        }
+        else {
+            xNode = xNode-&gt;right;
+        }
+    }
+
+    if (xNode == nullptr) return nullptr;
+
+    Node *p2 = xNode-&gt;left;
+    while (p2 != nullptr) {
+        if (p2-&gt;right == nullptr) {
+            return p2;
+        }
+        p2 = p2-&gt;right;
+    }
+    return nullptr;
+}
+/*** Ende Aufgabe_08_3.h ***/
+</span></pre></body></html>
