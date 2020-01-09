@@ -1,24 +1,40 @@
 a)
-Ein Kopierkonstruktor liefert ein Speicherabbild eines Objektes. Er wird beispielsweise
-benötigt, wenn ein Objekt in Form eines Parameters an eine Funktion übergeben. In C++ wird
-automatisch ein Kopierkonstruktor erstellt. Eine eigenständige Implementierung ist beispielsweise
-nötig, wenn der Konstruktor dynamischen Speicher anfordert.
+In C++ wird standardmäßig automatisch ein Kopierkonstruktor erstellt. Dieser liefert eine "shallow copy".
+Eine eigene Implementierung ist daher (nach der "Rule of Three") nötig, wenn die Klasse dynamischen Speicher benutzt.
+Ein Beispiel für eine Klasse, in die Implementierung eines Kopierkonstruktors vonnöten ist,
+ist der ADT Stapel, sofern dieser mit dynamischen Speicher implementiert ist.
+Bei einer "shallow copy" würden die Zeiger von sowohl der kopierten als auch der ursprünglichen Instanz
+gleich sein und somit auf dieselben Daten zeigen, was zu unerwünschtem Verhalten führt.
+Daher muss in einer eigenen Implementierung des Kopierkonstruktors neuer dynamischer Speicher angefordert werden,
+in den die Daten dann kopiert werden, und die Zeigerstruktur muss aktualisiert werden.
 
 b)
-Im Gegensatz zu einer ASCII-Datei findet bei einer Binärdatei keine Zeichenübersetzung statt
-weshalb diese Daten schneller übertragen werden können. ASCII-Dateien können mit einem
-Editor bearbeitet werden, während Binärdateien byteweise beschrieben/gelesen werden.
+Im Gegensatz zu einer ASCII-Datei findet bei einer Binärdatei keine Kodierung von Zeichen in Bytes und umgekehrt statt.
+ASCII-Dateien können mit einem normalen Texteditor bearbeitet werden, während Binärdateien
+byteweise gelesen/geschrieben werden und in der Regel nicht menschenlesbar sind.
+Es muss jedoch klargestellt werden, dass Textdateien genauso aus Bits/Bytes bestehen wie Binärdateien.
+Sie besitzen jedoch eine bestimmte Kodierung (z.B. ASCII) und enthalten dementsprechend ausschließlich Text,
+währen Binärdateien auch z.B. Bilder speichern können.
 
 c)
-Mit Hilfe von file.eof() kann überprüft werden, ob das Ende einer Datei erreicht ist.
+Mit Hilfe von file.eof() ("end of file") kann überprüft werden, ob das Ende einer Datei erreicht ist.
+In diesem Fall gibt die Methode true zurück.
 
 d)
-Auf eine schreibgeschützte Datei darf nicht zugegriffen werden.
+Bei Dateioperationen gibt es viele Fehlerquellen. Es muss beispielsweise beachtet werden,
+dass das Schreiben in eine bestehende Datei standardmäßig die darin vorhandenen Daten überschreibt.
+Weiterhin können verschiedene Umstände (z.B. fehlende Rechte, write locks, IO-Fehler, …) bewirken,
+dass auf eine Datei nicht (schreibend) zugegriffen werden kann.
+Falls es ofstream nicht gelingt, eine Datei schreibend zu öffnen, so gibt
+ofs.is_open() false zurück. Für diesen Fall sollte eine Ausnahmebehandlung programmiert werden.
+Zuletzt muss nach der Schreiboperation die Datei wieder geschlossen werden.
 
 e)
-Falls versucht wird, auf eine schreibgeschützte Datei zuzugreifen, wird diese in einen
-Fehlerzustand gesetzt.
+Der Versuch, eine schreibgeschützte Datei schreibend zu öffnen,
+führt zum Setzen eines Fehlerzustandes im fstream-Objekt.
 
 f)
 Für die Tiefensuche in einem Binärbaum gibt es drei mögliche Durchlaufstrategien:
-Die Preorder, Inorder und Postorder Methoden.
+• Präorder – Vor Abstieg in Unterbäume die "Knotenbehandlung" durchführen
+• Postorder – Nach Abstieg in bzw. Rückkehr aus Unterbäumen die "Knotenbehandlung" durchführen
+• Inorder – Zwischen zwei Abstiegen "Knotenbehandlung" durchführen
