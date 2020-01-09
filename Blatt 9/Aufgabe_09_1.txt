@@ -1,0 +1,24 @@
+a)
+Ein Kopierkonstruktor liefert ein Speicherabbild eines Objektes. Er wird beispielsweise
+benötigt, wenn ein Objekt in Form eines Parameters an eine Funktion übergeben. In C++ wird
+automatisch ein Kopierkonstruktor erstellt. Eine eigenständige Implementierung ist beispielsweise
+nötig, wenn der Konstruktor dynamischen Speicher anfordert.
+
+b)
+Im Gegensatz zu einer ASCII-Datei findet bei einer Binärdatei keine Zeichenübersetzung statt
+weshalb diese Daten schneller übertragen werden können. ASCII-Dateien können mit einem
+Editor bearbeitet werden, während Binärdateien byteweise beschrieben/gelesen werden.
+
+c)
+Mit Hilfe von file.eof() kann überprüft werden, ob das Ende einer Datei erreicht ist.
+
+d)
+Auf eine schreibgeschützte Datei darf nicht zugegriffen werden.
+
+e)
+Falls versucht wird, auf eine schreibgeschützte Datei zuzugreifen, wird diese in einen
+Fehlerzustand gesetzt.
+
+f)
+Für die Tiefensuche in einem Binärbaum gibt es drei mögliche Durchlaufstrategien:
+Die Preorder, Inorder und Postorder Methoden.
