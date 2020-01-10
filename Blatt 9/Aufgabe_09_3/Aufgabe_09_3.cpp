@@ -44,7 +44,19 @@ int main() {
 --------------
 
 Kopierkonstruktor: baum2(baum1)
+                                 6
+                 2                               8
+         1               3               7               9
 
-Process returned -1073741819 (0xC0000005)   execution time : 1.780 s
+----------------------------
+
+Zuweisungsoperator: baum3 = baum1
+                                 6
+                 2                               8
+         1               3               7               9
+
+----------------------------
+
+
 */
 /*** Ende Aufgabe_09_3.cpp ***/

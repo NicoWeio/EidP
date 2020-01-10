@@ -161,18 +161,24 @@ void BinTree<T>::printLevel(std::ostream &os, Node *node, int level, int current
 // Notwendige Methode: copyElements(Node *node)
 template<typename T>
 void BinTree<T>::copyElements(Node *node) {
+    if (node == nullptr) return;
+    insert(node->data);
 
+    copyElements(node->left);
+    copyElements(node->right);
 }
 
 // Verlangte Methode: BinTree(const BinTree<T> &baum)
 template<typename T>
-BinTree<T>::BinTree(const BinTree<T> &baum) {
-
+BinTree<T>::BinTree(const BinTree<T> &baum) : BinTree() {
+    copyElements(baum.root);
 }
 
 // Verlangte Methode: operator=(const BinTree<T> &baum)
 template<typename T>
 BinTree<T> &BinTree<T>::operator=(const BinTree<T> &baum) {
-
+    if (this == &baum) return *this; // falls Selbstzuweisung
+    clear();
+    copyElements(baum.root);
 }
 /*** Ende Aufgabe_09_3.h ***/
