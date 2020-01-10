@@ -21,6 +21,8 @@ private:
 
     void print(Node *node) const;
 
+    void preorder(const Node *node);
+
 public:
     BinTree() { root = nullptr; }
 
@@ -154,6 +156,17 @@ void BinTree<T>::printLevel(std::ostream &os, Node *node, int level, int current
 // Verlangte Methode: preorder()
 template<typename T>
 void BinTree<T>::preorder() {
-
+    preorder(this->root);
 }
+
+template<typename T>
+void BinTree<T>::preorder(const Node *node) {
+    if (node == nullptr) {
+        return;
+    }
+    std::cout << node->data << " ";
+    preorder(node->left);
+    preorder(node->right);
+}
+
 /*** Ende Aufgabe_09_2.h ***/

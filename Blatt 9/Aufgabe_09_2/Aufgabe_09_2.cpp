@@ -16,7 +16,7 @@ int main() {
 
     /* Test von preorder() */
     cout << "Knoten von Baum1 in Preorder-Reihenfolge: ";
-    // hier die richtige Funktion aufrufen
+    baum1.preorder();
     cout << endl;
 
     return 0;
@@ -25,6 +25,6 @@ int main() {
                                  6
                  2                               8
          1               3               7               9
-Knoten von Baum1 in Preorder-Reihenfolge:
+Knoten von Baum1 in Preorder-Reihenfolge: 6 2 1 3 8 7 9
 */
 /*** Ende Aufgabe_09_2.cpp ***/
