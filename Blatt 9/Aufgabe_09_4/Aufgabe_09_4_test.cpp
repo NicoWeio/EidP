@@ -28,5 +28,19 @@ int main(int argc, char **argv) {
     return 0;
 }
 /* Ausgabe:
+*** Ausgabe der Brueche ***
+Bruch  1/0  : 1/1
+Bruch  0/0  : 1/1
+Bruch  5/-10: -1/2
+Bruch -5/10 : -1/2
+Bruch -5/-10: 1/2
+Bruch  5/9  : 5/9
+Bruch  4/6  : 2/3
+
+*** Rechnen mit Bruechen ***
+Addition:       5/9 + 4/6 = 11/9
+Subtraktion:    5/9 - 4/6 = -1/9
+Multiplikation: 5/9 * 4/6 = 10/27
+Division:       5/9 / 4/6 = 5/6
 */
 /*** Ende Aufgabe_09_4_test.cpp ***/

@@ -37,4 +37,6 @@ private:
     int numerator;
     int denominator;
 };
+
+ostream &operator<<(ostream &os, Fraction const &f);
 /*** Ende Aufgabe_09_4.h ***/
