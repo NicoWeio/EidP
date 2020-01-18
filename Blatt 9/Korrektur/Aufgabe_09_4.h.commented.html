@@ -1,0 +1,44 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_09_4.h ***/
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Fraction {
+public:
+    /*Konstruktoren*/
+    Fraction();
+
+    Fraction(int const numerator, int const denominator);
+
+    /*Ueberladene Operatoren*/
+    Fraction operator+(Fraction const &amp;f);
+
+    Fraction operator-(Fraction const &amp;f);
+
+    Fraction operator*(Fraction const &amp;f);
+
+    Fraction operator/(Fraction const &amp;f);
+
+    /* Getter */
+    int getNumerator() const;
+
+    int getDenominator() const;
+    /*Ausgabe*/
+//        ostream&amp; operator&lt;&lt;(ostream &amp;os, Fraction const &amp;f);
+    void print();
+
+private:
+    /*Private Methoden*/
+    void normalize();
+
+    int gcd(int const n, int const d);
+
+    /*Private Variablen*/
+    int numerator;
+    int denominator;
+};
+
+ostream &amp;operator&lt;&lt;(ostream &amp;os, Fraction const &amp;f);
+/*** Ende Aufgabe_09_4.h ***/
+</span></pre></body></html>

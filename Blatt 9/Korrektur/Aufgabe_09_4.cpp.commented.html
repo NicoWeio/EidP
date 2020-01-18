@@ -1,0 +1,88 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_09_4.cpp ***/
+#include &quot;Aufgabe_09_4.h&quot;
+
+Fraction::Fraction() : numerator(1), denominator(1) {}
+
+/*** Ende Aufgabe_09_4.cpp ***/
+Fraction Fraction::operator+(Fraction const &amp;f) {
+    if (denominator == f.denominator) { //nur f&uuml;r ggf. bessere Effizienz
+        // diese Syntax ist &auml;quivalent zu &quot;return Fraction(x, y)&quot;:
+        return {numerator + f.numerator, denominator};
+    } else {
+        int const newNumerator = numerator * f.denominator + f.numerator * denominator;
+        return {newNumerator, denominator * f.denominator};
+    }
+}
+
+Fraction Fraction::operator-(Fraction const &amp;f) {
+    if (denominator == f.denominator) { //nur f&uuml;r ggf. bessere Effizienz
+        return {numerator - f.numerator, denominator};
+    } else {
+        int const newNumerator = numerator * f.denominator - f.numerator * denominator;
+        return {newNumerator, denominator * f.denominator};
+    }
+}
+
+Fraction Fraction::operator*(Fraction const &amp;f) {
+    return {numerator * f.numerator, denominator * f.denominator};
+}
+
+Fraction Fraction::operator/(Fraction const &amp;f) {
+    return {numerator * f.denominator, denominator * f.numerator};
+}
+
+int Fraction::getNumerator() const {
+    return numerator;
+}
+
+int Fraction::getDenominator() const {
+    return denominator;
+}
+
+void Fraction::print() {
+    cout &lt;&lt; this;
+}
+
+ostream &amp;operator&lt;&lt;(ostream &amp;os, Fraction const &amp;f) {
+    os &lt;&lt; f.getNumerator() &lt;&lt; &quot;/&quot; &lt;&lt; f.getDenominator();
+    return os;
+}
+
+void Fraction::normalize() {
+    int foo = gcd(numerator, denominator);
+    numerator /= foo;
+    denominator /= foo;
+
+    if (denominator &lt; 0) {
+        numerator *= -1;
+        denominator *= -1;
+    }
+}
+
+int Fraction::gcd(int const n, int const d) {
+    //https://www.formelsammlung-mathe.de/grundrechenarten/groester-gemeinsamer-teiler.html#euklidischer-algorithmus
+    if (n == d) {
+        return n;
+    } else {
+        int a = (n &gt; d) ? n : d;
+        int b = (n &gt; d) ? d : n;
+
+        while (true) {
+            int rest = a % b;
+            if (rest == 0) return b;
+            a = b;
+            b = rest;
+        }
+    }
+
+}
+
+Fraction::Fraction(int const numerator, int const denominator) : numerator(numerator), denominator(denominator) {
+    if (denominator == 0) {
+        this-&gt;numerator = 1;
+        this-&gt;denominator = 1;
+    }
+    normalize();
+}
+</span></pre></body></html>

@@ -1,0 +1,33 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_09_2.cpp ***/
+#include &quot;Aufgabe_09_2.h&quot;
+
+using namespace std;
+
+int main() {
+    int array1[] = {6, 8, 2, 7, 9, 1, 3};
+    unsigned int length = sizeof(array1) / sizeof(int);
+
+    BinTree&lt;int&gt; baum1;
+
+    for (unsigned int i = 0; i &lt; length; ++i) {
+        baum1.insert(array1[i]);
+    }
+    baum1.printToConsole();
+
+    /* Test von preorder() */
+    cout &lt;&lt; &quot;Knoten von Baum1 in Preorder-Reihenfolge: &quot;;
+    baum1.preorder();
+    cout &lt;&lt; endl;
+
+    return 0;
+}
+/* Ausgabe:
+                                 6
+                 2                               8
+         1               3               7               9
+Knoten von Baum1 in Preorder-Reihenfolge: 6 2 1 3 8 7 9
+*/
+/*** Ende Aufgabe_09_2.cpp ***/
+</span></pre>
+</body></html>

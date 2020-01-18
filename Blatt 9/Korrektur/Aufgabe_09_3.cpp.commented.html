@@ -1,0 +1,64 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_09_3.cpp ***/
+#include &quot;Aufgabe_09_3.h&quot;
+
+using namespace std;
+
+int main() {
+    int array1[] = {6, 8, 2, 7, 9, 1, 3};
+    unsigned int length = sizeof(array1) / sizeof(int);
+
+    BinTree&lt;int&gt; baum1;
+
+    for (unsigned int i = 0; i &lt; length; ++i) {
+        baum1.insert(array1[i]);
+    }
+    baum1.printToConsole();
+
+    cout &lt;&lt; endl &lt;&lt; &quot;--------------&quot; &lt;&lt; endl &lt;&lt; endl;
+
+    // *** Hier baum2 als Kopie von baum1 mit Hilfe des Kopierkonstruktors erzeugen. ***
+    cout &lt;&lt; &quot;Kopierkonstruktor: baum2(baum1)&quot; &lt;&lt; endl;
+    BinTree&lt;int&gt; baum2(baum1);
+    baum2.printToConsole();
+    cout &lt;&lt; endl &lt;&lt; &quot;----------------------------&quot; &lt;&lt; endl &lt;&lt; endl;
+
+
+    // *** Hier baum3 als Kopie von baum1 mit Hilfe des Zuweisungsoperators erzeugen. ***
+    cout &lt;&lt; &quot;Zuweisungsoperator: baum3 = baum1&quot; &lt;&lt; endl;
+    BinTree&lt;int&gt; baum3;
+    baum3.insert(4);
+    baum3.insert(5);
+    baum3.insert(2);
+
+    baum3 = baum1;
+    baum3.printToConsole();
+    cout &lt;&lt; endl &lt;&lt; &quot;----------------------------&quot; &lt;&lt; endl &lt;&lt; endl;
+
+    return 0;
+}
+/* Ausgabe:
+                                 6
+                 2                               8
+         1               3               7               9
+
+--------------
+
+Kopierkonstruktor: baum2(baum1)
+                                 6
+                 2                               8
+         1               3               7               9
+
+----------------------------
+
+Zuweisungsoperator: baum3 = baum1
+                                 6
+                 2                               8
+         1               3               7               9
+
+----------------------------
+
+
+*/
+/*** Ende Aufgabe_09_3.cpp ***/
+</span></pre></body></html>

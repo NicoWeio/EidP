@@ -1,0 +1,48 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">/*** Aufgabe_09_4_test.cpp ***/
+#include &quot;Aufgabe_09_4.h&quot;
+
+int main(int argc, char **argv) {
+    Fraction f1(1, 0);
+    Fraction f2(0, 0);
+    Fraction f3(5, -10);
+    Fraction f4(-5, 10);
+    Fraction f5(-5, -10);
+    Fraction f6(5, 9);
+    Fraction f7(4, 6);
+
+    cout &lt;&lt; &quot;*** Ausgabe der Brueche ***&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch  1/0  : &quot; &lt;&lt; f1 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch  0/0  : &quot; &lt;&lt; f2 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch  5/-10: &quot; &lt;&lt; f3 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch -5/10 : &quot; &lt;&lt; f4 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch -5/-10: &quot; &lt;&lt; f5 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch  5/9  : &quot; &lt;&lt; f6 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Bruch  4/6  : &quot; &lt;&lt; f7 &lt;&lt; endl;
+
+    cout &lt;&lt; endl &lt;&lt; &quot;*** Rechnen mit Bruechen ***&quot; &lt;&lt; endl;
+    cout &lt;&lt; &quot;Addition:       5/9 + 4/6 = &quot; &lt;&lt; f6 + f7 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Subtraktion:    5/9 - 4/6 = &quot; &lt;&lt; f6 - f7 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Multiplikation: 5/9 * 4/6 = &quot; &lt;&lt; f6 * f7 &lt;&lt; endl;
+    cout &lt;&lt; &quot;Division:       5/9 / 4/6 = &quot; &lt;&lt; f6 / f7 &lt;&lt; endl;
+
+    return 0;
+}
+/* Ausgabe:
+*** Ausgabe der Brueche ***
+Bruch  1/0  : 1/1
+Bruch  0/0  : 1/1
+Bruch  5/-10: -1/2
+Bruch -5/10 : -1/2
+Bruch -5/-10: 1/2
+Bruch  5/9  : 5/9
+Bruch  4/6  : 2/3
+
+*** Rechnen mit Bruechen ***
+Addition:       5/9 + 4/6 = 11/9
+Subtraktion:    5/9 - 4/6 = -1/9
+Multiplikation: 5/9 * 4/6 = 10/27
+Division:       5/9 / 4/6 = 5/6
+*/
+/*** Ende Aufgabe_09_4_test.cpp ***/
+</span></pre></body></html>

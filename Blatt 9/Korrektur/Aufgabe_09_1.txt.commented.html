@@ -1,0 +1,44 @@
+<html><body><pre class="autowrap">
+<span style="font-family: monospace; font-size:medium;">a)
+In C++ wird standardm&auml;&szlig;ig automatisch ein Kopierkonstruktor erstellt. Dieser liefert eine &quot;shallow copy&quot;.
+Eine eigene Implementierung ist daher (nach der &quot;Rule of Three&quot;) n&ouml;tig, wenn die Klasse dynamischen Speicher benutzt.
+Ein Beispiel f&uuml;r eine Klasse, in die Implementierung eines Kopierkonstruktors vonn&ouml;ten ist,
+ist der ADT Stapel, sofern dieser mit dynamischen Speicher implementiert ist.
+Bei einer &quot;shallow copy&quot; w&uuml;rden die Zeiger von sowohl der kopierten als auch der urspr&uuml;nglichen Instanz
+gleich sein und somit auf dieselben Daten zeigen, was zu unerw&uuml;nschtem Verhalten f&uuml;hrt.
+Daher muss in einer eigenen Implementierung des Kopierkonstruktors neuer dynamischer Speicher angefordert werden,
+in den die Daten dann kopiert werden, und die Zeigerstruktur muss aktualisiert werden.
+
+b)
+Im Gegensatz zu einer ASCII-Datei findet bei einer Bin&auml;rdatei keine Kodierung von Zeichen in Bytes und umgekehrt statt.
+ASCII-Dateien k&ouml;nnen mit einem normalen Texteditor bearbeitet werden, w&auml;hrend Bin&auml;rdateien
+byteweise gelesen/geschrieben werden und in der Regel nicht menschenlesbar sind.
+Es muss jedoch klargestellt werden, dass Textdateien genauso aus Bits/Bytes bestehen wie Bin&auml;rdateien.
+Sie besitzen jedoch eine bestimmte Kodierung (z.B. ASCII) und enthalten dementsprechend ausschlie&szlig;lich Text,
+w&auml;hren Bin&auml;rdateien auch z.B. Bilder speichern k&ouml;nnen. 
+<strong><span style="color:red;">Es gibt auch Kodierungen, die Bilder darstellen k&ouml;nnen. Der Unterschied zu Bin&auml;rdateien ist einfach, dass eine Kodierung stattfindet. Grunds&auml;tzlich habt ihr aber recht.
+</span></strong>
+
+c)
+Mit Hilfe von file.eof() (&quot;end of file&quot;) kann &uuml;berpr&uuml;ft werden, ob das Ende einer Datei erreicht ist.
+In diesem Fall gibt die Methode true zur&uuml;ck.
+
+d)
+Bei Dateioperationen gibt es viele Fehlerquellen. Es muss beispielsweise beachtet werden,
+dass das Schreiben in eine bestehende Datei standardm&auml;&szlig;ig die darin vorhandenen Daten &uuml;berschreibt.
+Weiterhin k&ouml;nnen verschiedene Umst&auml;nde (z.B. fehlende Rechte, write locks, IO-Fehler, &hellip;) bewirken,
+dass auf eine Datei nicht (schreibend) zugegriffen werden kann.
+Falls es ofstream nicht gelingt, eine Datei schreibend zu &ouml;ffnen, so gibt
+ofs.is_open() false zur&uuml;ck. F&uuml;r diesen Fall sollte eine Ausnahmebehandlung programmiert werden.
+Zuletzt muss nach der Schreiboperation die Datei wieder geschlossen werden.
+
+e)
+Der Versuch, eine schreibgesch&uuml;tzte Datei schreibend zu &ouml;ffnen,
+f&uuml;hrt zum Setzen eines Fehlerzustandes im fstream-Objekt.
+
+f)
+F&uuml;r die Tiefensuche in einem Bin&auml;rbaum gibt es drei m&ouml;gliche Durchlaufstrategien:
+&bull; Pr&auml;order &ndash; Vor Abstieg in Unterb&auml;ume die &quot;Knotenbehandlung&quot; durchf&uuml;hren
+&bull; Postorder &ndash; Nach Abstieg in bzw. R&uuml;ckkehr aus Unterb&auml;umen die &quot;Knotenbehandlung&quot; durchf&uuml;hren
+&bull; Inorder &ndash; Zwischen zwei Abstiegen &quot;Knotenbehandlung&quot; durchf&uuml;hren
+</span></pre></body></html>
