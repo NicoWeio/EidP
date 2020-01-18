@@ -1,22 +1,31 @@
 a)
-Der Begriff Polymorphismus beschreibt die dynamische Bindung von Methoden an Objekte.
+Der Begriff Polymorphie beschreibt die dynamische Bindung von Methoden an Objekte.
+Das bedeutet, dass erst zur Laufzeit entschieden wird,
+welche Methode innerhalb einer Klassenhierarchie aufgerufen werden soll.
+Dies wird über (rein) virtuelle Methoden realisiert.
 
 b)
-Alle Attribute und Methoden der Oberklasse A sind automatisch auch in der entsprechenden
-Unterklasse B enthalten.
+Alle Attribute und Methoden der Oberklasse A sind automatisch auch in der erbenden
+Unterklasse B enthalten. Ihre Zugriffsmodifikatoren können sich jedoch verändern.
+Zudem können Attribute und Methoden hinzugefügt oder redefiniert werden.
 
 c)
-Virtuelle Methoden werden durch das Schlüsselwort virtual gekennzeichnet. Bei einer virtuellen
-Methode findet die Bindung zur Laufzeit statt.
+Virtuelle Methoden werden durch das Schlüsselwort virtual gekennzeichnet.
+Bei einer virtuellen Methode findet die Bindung zur Laufzeit statt.
 
 d)
-Bei der Deklaration einer rein virtuellen Methode muss hinter der
-Signatur "=0" eingefügt werden.
+Bei der Deklaration einer rein virtuellen Methode muss
+hinter der Signatur "= 0" eingefügt werden. Das sorgt dafür,
+dass keine Instanz der dadurch abstrakten Klasse erstellt werden kann.
+Beispiel:
+virtual void foo() = 0;
 
 e)
 Wenn eine Klasse mindestens eine rein virtuelle Funktion enthält, wird sie als
 abstrakt bezeichnet.
 
 f)
-Von Abstrakten Klassen selbst können keine Instanzen erstellt werden, sie fungieren
-lediglich als Basisklassen für weitere untergeordnete Klassen.
+Von abstrakten Klassen selbst können keine Instanzen erstellt werden;
+sie fungieren lediglich als Basisklassen für untergeordnete Klassen.
+Somit wird Redundanz im Quellcode vermieden,
+ohne eine ungewollte Verwendung der Basisklasse zu riskieren.
