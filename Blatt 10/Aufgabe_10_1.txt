@@ -1,0 +1,22 @@
+a)
+Der Begriff Polymorphismus beschreibt die dynamische Bindung von Methoden an Objekte.
+
+b)
+Alle Attribute und Methoden der Oberklasse A sind automatisch auch in der entsprechenden
+Unterklasse B enthalten.
+
+c)
+Virtuelle Methoden werden durch das Schlüsselwort virtual gekennzeichnet. Bei einer virtuellen
+Methode findet die Bindung zur Laufzeit statt.
+
+d)
+Bei der Deklaration einer rein virtuellen Methode muss hinter der
+Signatur "=0" eingefügt werden.
+
+e)
+Wenn eine Klasse mindestens eine rein virtuelle Funktion enthält, wird sie als
+abstrakt bezeichnet.
+
+f)
+Von Abstrakten Klassen selbst können keine Instanzen erstellt werden, sie fungieren
+lediglich als Basisklassen für weitere untergeordnete Klassen.
