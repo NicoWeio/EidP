@@ -172,7 +172,7 @@ void BinTree&lt;T&gt;::copyElements(Node *node) {
 // Verlangte Methode: BinTree(const BinTree&lt;T&gt; &amp;baum)
 template&lt;typename T&gt;
 BinTree&lt;T&gt;::BinTree(const BinTree&lt;T&gt; &amp;baum) : BinTree() {
-    <strong><span style="color:red;">// Hier braucht ihr ein root = nullptr;, sonst m&ouml;glicherweise Speicherzugriffsfehler! (-0.2 P.)</span></strong>
+    <strike><strong><span style="color:red;">// Hier braucht ihr ein root = nullptr;, sonst m&ouml;glicherweise Speicherzugriffsfehler! (-0.2 P.)</span></strong></strike>
     copyElements(baum.root);
 }
 
